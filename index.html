@@ -1148,41 +1148,732 @@ footer{background:var(--navy);color:#fff;padding:30px 4% 15px}
   font-weight: 600;
 }
 
+/* Logo + nom sur une seule ligne */
 
+/* ===== NAVBAR : dimensions corrigées ===== */
+.site-header {
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.site-header .nav {
+  height: 72px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+  gap: 20px;
+}
+
+.site-header .brand {
+  font-size: 17px;
+  gap: 9px;
+}
+
+.site-header .brand-mark {
+  font-size: 30px;
+  width: 40px;
+  flex-basis: 40px;
+}
+
+.site-header .nav-links {
+  gap: clamp(14px, 2vw, 27px);
+  font-size: 13px;
+}
+
+.nav-tools {
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.theme-toggle,
+.language-toggle {
+  height: 34px;
+}
+
+@media (max-width: 820px) {
+  .site-header .nav {
+    height: auto;
+    min-height: 68px;
+    padding: 10px 16px;
+  }
+
+  .site-header .nav-links {
+    width: 10%;
+    height: 36px;
+    order: 3;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+}
+
+/* Nom sur une seule ligne dans le haut de page */
+.hero-copy h1{
+  white-space:nowrap;
+  font-size:clamp(28px,3.8vw,46px);
+  letter-spacing:-.03em;
+}
+
+/* Tablette et téléphone : le texte prend toute la largeur */
+@media (max-width:1000px){
+  .hero-copy h1{font-size:clamp(22px,6.4vw,46px)}
+}
+
+/* ===== NAVBAR : VERSION CORRIGÉE ===== */
+.site-header {
+  height: 68px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0;
+  background: rgba(8, 11, 18, .94);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.site-header .nav {
+  height: 68px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 18px;
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -.3px;
+  white-space: nowrap;
+}
+
+.site-header .brand-mark {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  font-size: 25px;
+}
+
+.site-header .brand em {
+  color: #a55aff;
+  font-style: normal;
+}
+
+.site-header .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: clamp(12px, 1.7vw, 23px);
+  height: 100%;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.site-header .nav-links a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #f1f1f6;
+  opacity: .78;
+  transition: color .2s ease, opacity .2s ease;
+}
+
+.site-header .nav-links a:hover,
+.site-header .nav-links a.active {
+  color: #c5a7ff;
+  opacity: 1;
+}
+
+.site-header .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: #984bff;
+  transition: right .25s ease;
+}
+
+.site-header .nav-links a:hover::after,
+.site-header .nav-links a.active::after {
+  right: 0;
+}
+
+.site-header .nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-shrink: 0;
+}
+
+.site-header .theme-toggle,
+.site-header .language-toggle {
+  height: 33px;
+  font-size: 12px;
+}
+@media (max-width: 900px) {
+  .site-header .nav {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 68px;
+    padding: 10px 16px;
+    gap: 8px;
+  }
+
+  .site-header .brand {
+    font-size: 14px;
+  }
+
+  .site-header .nav-links {
+    order: 3;
+    flex: 0 0 100%;
+    width: 100%;
+    height: 34px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 22px;
+    font-size: 12px;
+    scrollbar-width: none;
+  }
+
+  .site-header .nav-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-header .nav-links a {
+    height: 34px;
+    flex-shrink: 0;
+  }
+
+  .site-header .nav-links a::after {
+    bottom: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-header .brand {
+    font-size: 12px;
+    gap: 5px;
+  }
+
+  .site-header .brand-mark {
+    width: 29px;
+    height: 29px;
+    flex-basis: 29px;
+    font-size: 21px;
+  }
+
+  .site-header .nav-tools {
+    gap: 5px;
+  }
+}
+.nav-tools{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.theme-toggle,.language-toggle{height:38px;border:1px solid rgba(161,146,255,.28);border-radius:22px;color:#f4f2ff;background:rgba(255,255,255,.045);display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer}
+.theme-toggle{padding:0 12px;font-size:18px}.theme-toggle span:first-child{color:#e7e4ff}.theme-toggle span:last-child{color:#b6a9ff}
+.language-toggle{padding:0 13px;font-size:13px;min-width:62px}
+.hero{min-height:calc(100svh - 84px);isolation:isolate;background:linear-gradient(105deg,#080b12 0%,#0b0e17 53%,#15151e 100%);border:0;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 77% 36%,rgba(125,95,210,.13),transparent 35%),radial-gradient(ellipse at 98% 0%,rgba(255,255,255,.09),transparent 27%),linear-gradient(90deg,transparent 50%,rgba(255,255,255,.025));}
+.hero-inner{max-width:1600px;min-height:calc(100svh - 84px);padding:68px 5.2% 54px;display:block;position:relative;z-index:3}
+.hero-copy{max-width:56%;position:relative;z-index:4}
+.hero-art{position:absolute;top:0;right:0;bottom:0;width:53%;z-index:2;opacity:1;overflow:hidden}
+.hero-art img{width:100%;height:100%;object-fit:cover;object-position:center 24%;display:block;filter:grayscale(1) contrast(1.05);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.08) 9%,#000 26%),linear-gradient(0deg,transparent 0%,#000 12%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.08) 9%,#000 26%),linear-gradient(0deg,transparent 0%,#000 12%);mask-composite:intersect}
+.hero-art::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#080b12 0%,rgba(8,11,18,.75) 8%,transparent 44%),linear-gradient(0deg,rgba(8,11,18,.45),transparent 25%);z-index:1}
+.availability{display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border-radius:30px;background:#171d2b;border:1px solid rgba(255,255,255,.025);color:#f6f6fb;font-size:13px;font-weight:500}
+.availability-dot{width:11px;height:11px;flex:0 0 11px;border-radius:50%;background:#4fe79a;box-shadow:0 0 0 5px rgba(79,231,154,.12)}
+.availability-sep{color:#aab2cb;margin:0 2px}
+.hero-copy .hi{margin:28px 0 0;color:#f5f5fa;font-size:clamp(24px,2.9vw,42px);line-height:1.18;font-weight:600}
+.hero-copy h1{white-space:nowrap;font-family:"Syne",sans-serif;font-size:clamp(44px,5.25vw,76px);line-height:1.02;letter-spacing:-.055em;margin:8px 0 22px;font-weight:800;color:#f7f7fa}
+.hero-copy h1 .hero-firstname{color:#984bff}
+.hero-copy .role{display:flex;align-items:center;gap:15px;font-family:"DM Sans",sans-serif;font-size:clamp(19px,2vw,25px);font-weight:500;color:#f0eff8;margin:0 0 24px}
+.role-line{height:40px;width:4px;display:inline-block;background:linear-gradient(#b455ff,#713bfa);border-radius:3px}
+.hero-copy p.lead{max-width:525px;color:#bfc7dc;font-size:16px;line-height:1.75;margin:0 0 20px}
+.hero-copy p.lead strong{color:#f3f3fa;font-weight:700}
+.hero-tech{display:flex;flex-wrap:wrap;gap:11px;margin:20px 0 30px}
+.hero-tech span{display:inline-flex;align-items:center;gap:10px;min-height:45px;padding:0 17px;border-radius:25px;background:#171d2b;color:#f0f1f8;font-size:13px;white-space:nowrap}
+.hero-tech b{font-size:19px;line-height:1;font-weight:800}
+.tech-leaf{color:#56d77a}.tech-angular{color:#ff4156}.tech-react{color:#20d7ed}.tech-flutter{color:#25c6f6}.tech-n8n{color:#ff4c98}
+.hero-actions{display:flex;align-items:center;flex-wrap:wrap;gap:13px;margin:0 0 29px}
+.hero-actions .btn{min-height:50px;padding:0 26px;font-size:13px;font-weight:600}
+.hero-actions .btn-primary{background:linear-gradient(110deg,#7537f5,#9b42f5);box-shadow:0 8px 26px rgba(113,59,250,.22);color:#fff}
+.hero-actions .btn-outline{border:1px solid #8f70df;background:rgba(8,11,18,.32);color:#fff}
+.hero-actions .download-icon{font-size:23px;line-height:1}
+.hero-contact-link{color:#b8a0ff;font-size:14px;font-weight:700;padding:12px 24px;white-space:nowrap}
+.hero-contact-link span{margin-left:5px}
+.hero-socials{display:flex;gap:12px;margin-top:0}
+.hero-socials a{width:41px;height:41px;border:1px solid rgba(255,255,255,.04);background:#171d2b;color:#f1f3fb;font-size:13px}
+.hero-bottom-note{display:flex;align-items:center;gap:17px;margin-top:68px;color:#8792b2;font-size:13px;letter-spacing:.04em}
+.note-arrow{font-size:28px;color:#9271ff;line-height:1}
+.scroll-cue{position:absolute;bottom:26px;left:50%;display:flex;flex-direction:column;align-items:center;gap:7px;color:#a99aff;font-size:12px;z-index:5;transform:translateX(-50%)}
+.mouse{width:20px;height:32px;border:2px solid #8a50ff;border-radius:12px;display:flex;justify-content:center;padding-top:5px}
+.mouse i{width:2px;height:6px;background:#c3aaff;border-radius:3px;animation:mouseScroll 1.5s ease-in-out infinite}
+@keyframes mouseScroll{0%,100%{transform:translateY(0);opacity:1}70%{transform:translateY(8px);opacity:.1}}
+/* Un thème clair activable depuis le bouton du header */
+body.light-theme .site-header{background:rgba(246,246,255,.92);border-color:#e3defa}
+body.light-theme .site-header .brand,body.light-theme .site-header .brand span:last-child,body.light-theme .site-header .nav-links a{color:#171a3b}
+body.light-theme .hero{background:linear-gradient(105deg,#f5f3ff 0%,#e8e6f4 58%,#d7d4e6 100%)}
+body.light-theme .hero::before{opacity:.3}
+body.light-theme .hero-art::after{background:linear-gradient(90deg,#f5f3ff 0%,rgba(245,243,255,.7) 8%,transparent 44%),linear-gradient(0deg,rgba(245,243,255,.3),transparent 25%)}
+body.light-theme .hero-copy .hi,body.light-theme .hero-copy h1,body.light-theme .hero-copy .role{color:#171a3b}
+body.light-theme .hero-copy p.lead{color:#4c5270}
+body.light-theme .hero-copy p.lead strong{color:#171a3b}
+body.light-theme .availability,body.light-theme .hero-tech span,body.light-theme .hero-socials a{background:#e6e4f1;color:#252744}
+body.light-theme .hero-actions .btn-outline{color:#272340;background:rgba(255,255,255,.35)}
+body.light-theme .hero-contact-link{color:#7142d9}
+@media(max-width:1120px){
+ .site-header .nav{padding:0 3%}.site-header .brand{font-size:16px;gap:9px}.site-header .brand-mark{font-size:31px;width:40px;flex-basis:40px}
+ .site-header .nav-links{gap:18px;font-size:12px}.nav-tools{gap:7px}
+ .hero-copy{max-width:61%}.hero-art{width:55%}.hero-copy h1{font-size:clamp(40px,5.1vw,60px)}
+ .hero-contact-link{padding:10px 8px}
+}
+@media(max-width:820px){
+ .site-header{height:auto}.site-header .nav{height:auto;min-height:76px;flex-wrap:wrap;padding:10px 5%;gap:8px}
+ .site-header .nav-links{order:3;width:100%;height:35px;justify-content:flex-start;overflow-x:auto;gap:24px}
+ .site-header .nav-links a{height:35px}.site-header .nav-links a::after{bottom:0}
+ .nav-tools{margin-left:auto}
+ .hero,.hero-inner{min-height:calc(100svh - 111px)}
+ .hero-inner{padding:56px 5% 56px}
+ .hero-art{width:70%;opacity:.43}.hero-art img{object-position:52% 25%}
+ .hero-art::after{background:linear-gradient(90deg,#080b12 0%,rgba(8,11,18,.76) 18%,rgba(8,11,18,.18) 80%),linear-gradient(0deg,#080b12 0%,transparent 30%)}
+ .hero-copy{max-width:80%}.hero-copy h1{white-space:normal;font-size:clamp(42px,7.6vw,62px)}
+ .hero-copy .hi{font-size:28px}.hero-copy p.lead{max-width:490px}
+ .hero-bottom-note{margin-top:42px}
+}
+@media(max-width:560px){
+ .site-header .brand{font-size:15px}.site-header .brand-mark{font-size:28px;width:35px;flex-basis:35px}
+ .theme-toggle{height:34px;padding:0 9px}.language-toggle{height:34px;min-width:52px}
+ .site-header .nav-links{gap:22px;font-size:12px}
+ .hero,.hero-inner{min-height:auto}
+ .hero-inner{padding:48px 5% 78px}
+ .hero-art{width:100%;opacity:.23}.hero-art img{object-position:54% 20%}
+ .hero-art::after{background:linear-gradient(90deg,rgba(8,11,18,.45),rgba(8,11,18,.35)),linear-gradient(0deg,#080b12 0%,transparent 50%,#080b12 100%)}
+ .hero-copy{max-width:100%}.hero-copy .hi{margin-top:25px;font-size:24px}
+ .hero-copy h1{font-size:clamp(40px,11vw,54px);margin-bottom:17px}
+ .hero-copy .role{font-size:19px;margin-bottom:18px}
+ .hero-copy p.lead{font-size:14px;line-height:1.75}
+ .hero-tech{gap:7px;margin:17px 0 23px}.hero-tech span{min-height:38px;padding:0 11px;font-size:11px;gap:7px}
+ .hero-tech b{font-size:16px}
+ .hero-actions{gap:9px}.hero-actions .btn{min-height:45px;padding:0 15px;font-size:12px}
+ .hero-contact-link{padding:9px 4px;font-size:12px}
+ .hero-socials a{width:37px;height:37px}
+ .hero-bottom-note{margin-top:34px;font-size:11px}
+ .scroll-cue{display:none}
+}
+@media(prefers-reduced-motion:reduce){.mouse i{animation:none!important}}
+
+/* Garder la navbar dans le même ordre en français, anglais et arabe */
+nav,
+.navbar,
+.nav-links,
+.nav-actions {
+  direction: ltr !important;
+}
+
+/* Conserver l'ordre et la position des éléments de navigation */
+.nav-links {
+  flex-direction: row !important;
+}
+
+/* Le contenu arabe reste de droite à gauche */
+html[lang="ar"] body {
+  direction: rtl;
+}
+
+html[lang="ar"] nav,
+html[lang="ar"] .navbar,
+html[lang="ar"] .nav-links,
+html[lang="ar"] .nav-actions {
+  direction: ltr !important;
+}
+
+/* Garder la mise en page du Hero identique dans toutes les langues */
+.hero,
+.hero-content,
+.hero-actions,
+.hero-socials,
+.hero-tech,
+.hero-badges {
+  direction: ltr !important;
+}
+
+/* Garder les technologies dans le même ordre */
+.hero-tech {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start;
+}
+
+/* Garder les boutons dans leur ordre initial */
+.hero-actions {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: flex-start;
+}
+
+/* Garder les liens sociaux dans le même ordre */
+.hero-socials {
+  display: flex;
+  flex-direction: row !important;
+}
+
+/* Le texte arabe reste lisible de droite à gauche */
+html[lang="ar"] .hero h1,
+html[lang="ar"] .hero p {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Afficher le nom complet dans toutes les langues */
+.hero h1 {
+  width: 100%;
+  max-width: 100%;
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Éviter que le nom soit coupé sur mobile */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    white-space: normal !important;
+  }
+}
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f3f3f7;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.lang-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(167, 139, 250, 0.55);
+}
+
+.lang-arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.25s ease;
+}
+
+.lang-btn:hover .lang-arrow {
+  transform: translateY(2px)
+}
+
+/* ===== THEME TOGGLE — DESIGN PREMIUM ===== */
+.theme-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  width: 66px;
+  height: 36px;
+  padding: 4px 7px;
+  overflow: hidden;
+
+  border: 1px solid rgba(160, 170, 210, 0.24);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.055);
+  color: #c7c9df;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.12);
+
+  cursor: pointer;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.25s ease;
+}
+
+.theme-toggle:hover {
+  border-color: rgba(139, 92, 246, 0.65);
+  box-shadow:
+    0 0 0 4px rgba(139, 92, 246, 0.09),
+    0 6px 22px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 4px;
+}
+
+.theme-icon {
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  font-size: 17px;
+  line-height: 1;
+  transition:
+    color 0.35s ease,
+    transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.3s ease;
+}
+
+.theme-sun {
+  color: #fbbf24;
+}
+
+.theme-moon {
+  color: #c4b5fd;
+}
+
+.theme-toggle-indicator {
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #ffffff, #dedcf8);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    0 0 12px rgba(167, 139, 250, 0.12);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Mode clair : l'indicateur glisse vers la droite */
+html[data-theme="light"] .theme-toggle-indicator {
+  transform: translateX(30px);
+  background: linear-gradient(145deg, #fde68a, #f59e0b);
+  box-shadow:
+    0 2px 10px rgba(245, 158, 11, 0.25),
+    0 0 15px rgba(245, 158, 11, 0.18);
+}
+
+html[data-theme="light"] .theme-sun {
+  color: #92400e;
+  transform: rotate(180deg) scale(1.08);
+}
+
+html[data-theme="light"] .theme-moon {
+  color: #94a3b8;
+  transform: rotate(-25deg) scale(0.9);
+  opacity: 0.7;
+}
+
+html:not([data-theme="light"]) .theme-moon {
+  transform: rotate(0deg) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle,
+  .theme-icon,
+  .theme-toggle-indicator {
+    transition: none !important;
+  }
+}
+.theme-toggle .theme-sun {
+  color: #FFD700 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+.theme-toggle .theme-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+}
+
+.theme-toggle .theme-sun {
+  color: #FFD700 !important;
+  width: 26px;
+  height: 26px;
+  transform: none;
+  margin-left: -3.5px;
+  margin-top: 4px;
+}
+
+.theme-toggle .theme-toggle-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.language-toggle {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.language-toggle:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(120, 110, 255, 0.18);
+}
+
+.language-toggle:active {
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .language-toggle {
+    transition: none;
+  }
+}
+.contact-arrow {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.2em;
+  overflow: hidden;
+  line-height: 1.2;
+}
+
+.contact-arrow span {
+  display: block;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-contact-link:hover .contact-arrow span {
+  transform: translateX(5px);
+}
+
+.hero-contact-link .contact-arrow span:last-child {
+  display: none;
+}
 
 </style>
+
 </head>
 <body>
 <header class="site-header">
   <nav class="nav" aria-label="Navigation principale">
-    <a class="brand" href="#accueil"><span class="brand-mark">&lt;/&gt;</span><span>Zina Ben Belgacem</span></a>
+  <a href="#accueil" class="brand">
+  <img src="./public/aa.png" alt="Logo Zina Ben Belgacem" class="brand-logo">
+  <span><em>Zina</em> Ben Belgacem</span>
+</a>
     <div class="nav-links">
-      <a href="#accueil">Accueil</a><a href="#apropos">À propos</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#certifications">Certifications</a><a href="#experience">Parcours</a><a href="#contact">Contact</a>
+      <a class="active" href="#accueil">Accueil</a>
+      <a href="#competences">Compétences</a>
+      <a href="#projets">Projets</a>
+      <a href="#experience">Expériences</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-tools">
+
+<button
+  class="theme-toggle"
+  id="theme-toggle"
+  type="button"
+  aria-label="Changer le thème"
+  title="Changer le thème"
+  aria-pressed="false"
+>
+  <span class="theme-icon theme-sun" aria-hidden="true">☀</span>
+  <span class="theme-icon theme-moon" aria-hidden="true">☾</span>
+  <span class="theme-toggle-indicator" aria-hidden="true"></span>
+</button>
+
+<button
+  class="language-toggle"
+  id="language-toggle"
+  type="button"
+  aria-label="Changer de langue"
+>
+  <span id="current-lang">FR</span>
+  <svg class="lang-arrow" viewBox="0 0 16 16" aria-hidden="true">
+    <path d="m4 6 4 4 4-4"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"/>
+  </svg>
+</button>
     </div>
   </nav>
 </header>
 
 <main>
 <section class="hero" id="accueil">
-  <div class="hero-art"><img src="./public/hero-anime.jpg" alt="Illustration style anime : une développeuse devant son ordinateur, de nuit" width="1428" height="906" fetchpriority="high"></div>
+  <div class="hero-art"><img src="./public/hero-photo.jpg" alt="Portrait professionnel monochrome de Zina Ben Belgacem" width="640" height="940" fetchpriority="high"></div>
   <div class="hero-inner">
     <div class="hero-copy">
-      <div class="eyebrow">● Disponible · Sfax, Tunisie</div>
+      <div class="availability"><span class="availability-dot"></span>Disponible pour un poste ou une mission <span class="availability-sep">·</span> Sfax, Tunisie</div>
       <p class="hi">Bonjour, je suis</p>
-      <h1>Zina Ben Belgacem</h1>
-      <div class="role">Développeuse Full Stack</div>
-      <p class="lead">Titulaire d’un Master Professionnel en Génie Logiciel (DSIR), spécialisée dans le développement d’applications web et mobiles full stack. Passionnée par l’intelligence artificielle et l’automatisation, je conçois des solutions performantes et évolutives en combinant Spring Boot, React, Angular et Flutter, 
-        avec un intérêt particulier pour les chatbots IA, les architectures distribuées et l’intégration de services intelligents.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#projets">Découvrir mes projets </a>
-        <a class="btn btn-outline" href="./public/cv.pdf" download="CV_Zina_Ben_Belgacem.pdf">Télécharger mon CV ↓</a>
+      <h1><span class="hero-firstname">Zina</span> Ben Belgacem</h1>
+      <div class="role"><span class="role-line"></span>Développeuse Full Stack</div>
+      <p class="lead">Je conçois des applications web et mobiles complètes avec <strong>Spring Boot, Angular, React et Flutter</strong>, et j’y intègre l’IA : chatbots, assistants WhatsApp et automatisations n8n.</p>
+      <div class="hero-tech" aria-label="Technologies principales">
+        <span><b class="tech-leaf">◆</b> Spring Boot</span>
+        <span><b class="tech-angular">A</b> Angular</span>
+        <span><b class="tech-react">✿</b> React</span>
+        <span><b class="tech-flutter">ϟ</b> Flutter</span>
+        <span><b class="tech-n8n">⌘</b> n8n</span>
       </div>
-      <div class="socials">
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#projets">Voir mes projets <span></span></a>
+        <a class="btn btn-outline" href="./public/cv.pdf" download="CV_Zina_Ben_Belgacem.pdf"><span class="download-icon">↓</span> Télécharger mon CV</a>
+<a class="hero-contact-link" href="#contact">
+  Me contacter
+  <span class="contact-arrow" aria-hidden="true">
+    <span>→</span>
+    <span>→</span>
+  </span>
+</a>
+      </div>
+      <div class="socials hero-socials">
         <a href="https://github.com/zinabenbelgacem" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GH</a>
         <a href="https://www.linkedin.com/in/zina-ben-belgacem-b1761227b/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
         <a href="mailto:benbelgassemzina@gmail.com" aria-label="E-mail">✉</a>
       </div>
+      <div class="hero-bottom-note"><span class="note-arrow">⟶</span><span>Code&nbsp; · &nbsp;IA&nbsp; · &nbsp;Impact</span></div>
     </div>
+    <a class="scroll-cue" href="#apropos" aria-label="Défiler vers la suite"><span class="mouse"><i></i></span><span>Scroll</span></a>
   </div>
 </section>
 
@@ -1345,7 +2036,7 @@ footer{background:var(--navy);color:#fff;padding:30px 4% 15px}
     <h2>Construisons quelque chose de grand.</h2>
 
      <p>Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international. 
-        VVous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.</p>
+        Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.</p>
     <div class="contact-opportunities">
       <span class="contact-opportunities-icon" aria-hidden="true">✧</span>
       <div>
@@ -1595,7 +2286,352 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("Formulaire de contact initialisé.");
 });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll(".nav-links a[href^='#']");
+  const sections = document.querySelectorAll(
+    "#accueil, #apropos, #projets, #experience, #competences, #contact"
+  );
 
+  function updateActiveLink() {
+    const scrollPosition = window.scrollY + 150;
+    let currentSection = "accueil";
 
+    sections.forEach(section => {
+      if (section.offsetTop <= scrollPosition) {
+        currentSection = section.id;
+      }
+    });
+
+    navLinks.forEach(link => {
+      const target = link.getAttribute("href").substring(1);
+
+      // Associer À propos à la section Accueil
+      const isActive =
+        target === currentSection ||
+        (target === "accueil" && currentSection === "apropos");
+
+      link.classList.toggle("active", isActive);
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveLink, {
+    passive: true
+  });
+
+  window.addEventListener("load", updateActiveLink);
+  updateActiveLink();
+});
+</script>
+<script>
+const themeButton = document.getElementById("theme-toggle");
+
+function applyTheme(theme) {
+  document.body.classList.toggle("light-theme", theme === "light");
+
+  if (themeButton) {
+    themeButton.setAttribute(
+      "aria-label",
+      theme === "light" ? "Activer le mode sombre" : "Activer le mode clair"
+    );
+    themeButton.title =
+      theme === "light" ? "Mode clair activé" : "Mode sombre activé";
+  }
+}
+
+if (themeButton) {
+  applyTheme("dark");
+
+  themeButton.addEventListener("click", () => {
+    const isLight = document.body.classList.contains("light-theme");
+    applyTheme(isLight ? "dark" : "light");
+  });
+}
+</script>
+
+<script>
+/* ===== TRADUCTION COMPLÈTE FR / EN / AR ===== */
+(() => {
+  const button = document.getElementById('language-toggle');
+  const langs = ['FR','EN','AR'];
+  let current = 'FR';
+  const translations = {
+    EN: {
+      'Navigation principale':'Main navigation','Accueil':'Home','À propos':'About','À propos de moi':'About me','Projets':'Projects','Mes projets':'My projects','Compétences':'Skills','Certifications':'Certifications','Parcours':'Journey','Contact':'Contact',
+      '● Disponible · Sfax, Tunisie':'● Available · Sfax, Tunisia','Bonjour, je suis':'Hello, I am','Développeuse Full Stack':'Full Stack Developer',
+      'diplômée de l’ISET Sfax (Licence en Développement des Systèmes d’Information, puis Master Professionnel DSIR — Génie Logiciel), je crée':'a graduate of ISET Sfax (Bachelor’s degree in Information Systems Development, followed by a Professional Master’s in Software Engineering — DSIR), I build',
+      'tous types de sites et d’applications web et mobiles':'all kinds of websites and web and mobile applications',
+      ' : sites e-commerce, plateformes de gestion, sites vitrines, API performantes et architectures microservices, avec':' : e-commerce websites, management platforms, showcase websites, high-performance APIs and microservice architectures, using',
+      'Mes réalisations incluent des sites e-commerce (React, Node.js, Angular, NextJs, Spring boot et .Net ), une plateforme d’enchères en temps réel et un système de planification universitaire. Passionnée par l’innovation, j’intègre aussi l’IA et l’automatisation dans des projets concrets : assistants conversationnels, chatbots WhatsApp et workflows intelligents avec n8n. Curieuse, adaptable et orientée résolution de problèmes, je veux contribuer à des solutions utiles, fiables et évolutives.':'My projects include e-commerce websites (React, Node.js, Angular, Next.js, Spring Boot and .NET), a real-time auction platform and a university scheduling system. Passionate about innovation, I also integrate AI and automation into practical projects: conversational assistants, WhatsApp chatbots and intelligent n8n workflows. Curious, adaptable and solution-oriented, I aim to contribute to useful, reliable and scalable solutions.',
+      'Je conçois des applications web et mobiles complètes avec ':'I build complete web and mobile applications with ',
+      'Spring Boot, Angular, React et Flutter':'Spring Boot, Angular, React and Flutter',
+      ', et j’y intègre l’IA : chatbots, assistants WhatsApp et automatisations n8n.':', and integrate AI into them: chatbots, WhatsApp assistants and n8n automations.',
+      'Voir mes projets':'View my projects','Télécharger mon CV':'Download my CV','Me contacter':'Contact me',
+      'Code':'Code','IA':'AI','Impact':'Impact','Restons en contact':'Let’s stay in touch',
+      'Construisons quelque chose de grand.':'Let’s build something great.',
+      'Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international.':'I am looking for professional opportunities in Full Stack development, AI and automation, on-site in Tunisia or remotely, including internationally.',
+      'Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.':'Are you hiring or do you have a project to develop? Let’s discuss your needs and the solutions I can offer.',
+      'Opportunités professionnelles':'Career opportunities','CDI':'Full-time','Freelance':'Freelance','Télétravail':'Remote work',
+      'Un projet en tête ?':'Have a project in mind?','Parlons de votre besoin et des solutions possibles.':'Let’s discuss your needs and possible solutions.',
+      'Envoyer le message':'Send message','Disponible pour de nouvelles opportunités':'Available for new opportunities',
+      'E-MAIL':'EMAIL','TÉLÉPHONE':'PHONE','LOCALISATION':'LOCATION','Sfax, Tunisie':'Sfax, Tunisia',
+      'Full Stack':'Full Stack','Chatbots':'Chatbots','Automatisation':'Automation',
+      'Le futur appartient à ceux':'The future belongs to those','qui codent aujourd’hui.':'who code today.',
+      'Une idée en tête ?':'Have an idea in mind?',
+      'Créons quelque chose ensemble ♡':'Let’s build something together ♡',
+      'Les grandes choses ne viennent pas du confort, mais de la persévérance ♡':'Great things come not from comfort, but from perseverance ♡',
+      'Parlons de votre projet.':'Let’s talk about your project.',
+      'MES COORDONNÉES':'MY CONTACT DETAILS',
+      '⌖ صفاقس':'⌖ Sfax',
+      'Full Stack Developer':'Full Stack Developer',
+      'Titulaire d’un Master Professionnel en Génie Logiciel (DSIR), spécialisée dans le développement d’applications web et mobiles full stack. Passionnée par l’intelligence artificielle et l’automatisation, je conçois des solutions performantes et évolutives en combinant Spring Boot, React, Angular et Flutter, avec un intérêt particulier pour les chatbots IA, les architectures distribuées et l’intégration de services intelligents.':'I hold a Professional Master’s degree in Software Engineering (DSIR), specializing in full-stack web and mobile development. Passionate about artificial intelligence and automation, I build high-performance, scalable solutions with Spring Boot, React, Angular and Flutter, with a particular interest in AI chatbots, distributed architectures and intelligent service integration.',
+      'Découvrir mes projets →':'Explore my projects →','Télécharger mon CV ↓':'Download my CV ↓','Toujours en mode':'Always learning','apprentissage ♡':'♡','À propos de moi':'About me',
+      'Développeuse Full Stack à Sfax, titulaire d’une Licence en Développement des Systèmes d’Information et d’un Master Professionnel DSIR — Génie Logiciel à l’ISET Sfax. Je conçois des applications web et mobiles, des API performantes et des solutions d’automatisation intégrant des assistants IA, avec des architectures évolutives (microservices).':'Full Stack Developer based in Sfax, with a Bachelor’s degree in Information Systems Development and a Professional Master’s degree in Software Engineering (DSIR) from ISET Sfax. I build web and mobile applications, high-performance APIs and automation solutions integrating AI assistants and scalable microservice architectures.',
+      '⌖ Sfax, Tunisie':'⌖ Sfax, Tunisia','◎ Présentiel et remote':'◎ On-site and remote','✧ Master DSIR — Génie logiciel':'✧ DSIR Master’s — Software Engineering','IA & automatisation n8n':'AI & n8n automation','Mes qualités':'My strengths','Créativité':'Creativity','Adaptabilité':'Adaptability','Esprit d’équipe':'Teamwork','Bon relationnel':'Communication','Langues':'Languages','Français':'French','Anglais':'English','Arabe':'Arabic',
+      'Technologies et outils que j’utilise':'Technologies and tools I use','Backend':'Backend','Frontend & Mobile':'Frontend & Mobile','Bases de données':'Databases','DevOps & Cloud':'DevOps & Cloud','Automatisation & IA':'Automation & AI','IA & Data':'AI & Data','Workflows automatisés':'Automated workflows','Intégration de LLM':'LLM integration','IA appliquée':'Applied AI',
+      'Quelques réalisations en vidéo':'Selected projects in video','GED & Chatbot IA':'Document Management System & AI Chatbot','Système intelligent de gestion documentaire avec workflow BPM, chatbot IA et automatisation du cycle de vie des documents.':'Intelligent document management system featuring BPM workflows, an AI chatbot and automated document lifecycle management.','Plateforme d’enchères en temps réel':'Real-time Auction Platform','Gestion des enchères, communication instantanée via WebSocket, authentification sécurisée et système de commentaires.':'Auction management, real-time communication via WebSocket, secure authentication and a commenting system.','Plateforme e-commerce':'E-commerce Platform','Application de commerce électronique complète développée en collaboration : gestion des produits, panier et paiement sécurisé.':'A complete collaborative e-commerce application with product management, shopping cart and secure payment.','Plateforme de commerce digital':'Digital Commerce Platform','Plateforme e-commerce .NET permettant la gestion des produits, des commandes et des utilisateurs, avec une architecture sécurisée et performante.':'A .NET e-commerce platform for managing products, orders and users with a secure, high-performance architecture.','Calendrier & planification universitaire':'University Timetable & Scheduling','Gestion des emplois du temps avec planification automatique, détection des conflits et gestion des enseignants, salles, étudiants, groupes et matières.':'Timetable management with automatic scheduling, conflict detection and management of teachers, rooms, students, groups and subjects.','Assistant IA conversationnel sur WhatsApp':'WhatsApp Conversational AI Assistant','Assistant connecté à WhatsApp via la Cloud API : réponses automatiques, contexte des conversations, transfert à un humain par e-mail et fallback entre plusieurs LLM pour la continuité du service.':'An assistant connected to WhatsApp through the Cloud API, providing automated replies, conversation context, email handoff to a human and LLM fallback for service continuity.',
+      'Formations et attestations obtenues':'Courses and certificates earned','Expérience & Formation':'Experience & Education','Mon parcours':'My journey','Expérience professionnelle':'Professional experience','Formation académique':'Education','Stage PFE Master':'Master’s final-year internship','Stage PFE Licence':'Bachelor’s final-year internship','Stage de perfectionnement':'Advanced internship','Stage d’observation':'Observation internship','Plateforme intelligente de suivi opérationnel et de communication automatisée via chatbot : fonctionnalités web, gestion des dossiers, services de messagerie et notifications dans une architecture microservices. Spring Boot, Next.js, PostgreSQL et chatbot IA.':'Intelligent operational tracking and automated chatbot communication platform, including web features, case management, messaging and notifications in a microservices architecture. Spring Boot, Next.js, PostgreSQL and AI chatbot.','Plateforme de vente aux enchères : Angular et Spring Boot, enchères, temps réel, authentification sécurisée, ventes et commentaires.':'Auction platform built with Angular and Spring Boot, featuring real-time bidding, secure authentication, sales and comments.','Application e-commerce avec React et Node.js, en équipe sur un projet complet.':'E-commerce application built with React and Node.js as part of a team project.','Observation des processus opérationnels et informatiques d’une entreprise établie.':'Observed the operational and IT processes of an established organization.','Architecture logicielle avancée, IA, systèmes distribués, génie du logiciel et cloud.':'Advanced software architecture, AI, distributed systems, software engineering and cloud computing.','Développement web et mobile, bases de données, systèmes d’information et algorithmique.':'Web and mobile development, databases, information systems and algorithms.',
+      'Disponible pour des stages, missions freelance ou opportunités à temps plein. Un projet en tête ? Écrivez-moi.':'Available for internships, freelance projects or full-time opportunities. Have a project in mind? Send me a message.','Nom':'Name','E-mail':'Email','Objet':'Subject','Message':'Message','Nom et prénom':'Full name','nom@exemple.com':'name@example.com','Objet de votre message':'Message subject','Décrivez votre projet ou votre demande…':'Describe your project or request…','Envoyer le message →':'Send message →','Mes coordonnées':'Contact details','Ouverte aux opportunités en Tunisie et à l’international.':'Open to opportunities in Tunisia and internationally.','J’ai hâte de':'I look forward to','vous lire ♡':'hearing from you ♡','Navigation':'Navigation','Tous droits réservés.':'All rights reserved.','Fait avec ♥ à Sfax':'Made with ♥ in Sfax','© 2026 Zina Ben Belgacem. Tous droits réservés.':'© 2026 Zina Ben Belgacem. All rights reserved.','Fait avec ♥ à Sfax, Tunisie':'Made with ♥ in Sfax, Tunisia','Le formulaire doit encore être configuré avec vos identifiants EmailJS.':'The contact form still needs to be configured with your EmailJS credentials.','Envoi en cours…':'Sending…','Votre message a été envoyé. Merci pour votre contact !':'Your message has been sent. Thank you for reaching out!','L’envoi a échoué. Réessayez ou contactez-moi directement par e-mail.':'Sending failed. Please try again or contact me directly by email.',
+      'Disponible pour un poste ou une mission':'Available for a job or freelance assignment','Sfax, Tunisie':'Sfax, Tunisia','Voir mes projets':'View my projects','Télécharger mon CV':'Download my CV','Me contacter':'Contact me','Scroll':'Scroll','Code  ·  IA  ·  Impact':'Code · AI · Impact','Code · IA · Impact':'Code · AI · Impact',
+      'Je conçois des applications web et mobiles complètes avec':'I build complete web and mobile applications with','et j’y intègre l’IA : chatbots, assistants WhatsApp et automatisations n8n.':'and integrate AI into them: chatbots, WhatsApp assistants and n8n automations.','Restons en contact':'Let’s stay in touch','Construisons quelque chose de grand.':'Let’s build something great.','Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international.':'I am looking for professional opportunities in Full Stack development, AI and automation, on-site in Tunisia or remotely, including internationally.','Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.':'Are you hiring or do you have a project to develop? Let’s discuss your needs and the solutions I can offer.','CDI  · Freelance · Télétravail':'Full-time · Freelance · Remote work','Parlons de votre besoin et des solutions possibles.':'Let’s discuss your needs and possible solutions.','Nom':'Name','E-mail':'Email','Objet':'Subject','Message':'Message','Envoyer le message':'Send message','Opportunités professionnelles':'Career opportunities','Un projet en tête ?':'Have a project in mind?','MES COORDONNÉES':'MY CONTACT DETAILS','TÉLÉPHONE':'PHONE','LOCALISATION':'LOCATION','Full Stack':'Full Stack','IA':'AI','Automatisation':'Automation'
+,
+      "Je conçois des applications web et mobiles complètes avec":"I design and build complete web and mobile applications using",
+      "Voir mes projets→":"View my projects →",
+      "Voir mes projets →":"View my projects →",
+      "↓Télécharger mon CV":"↓ Download my CV",
+      "Télécharger mon CV":"Download my CV",
+      "Me contacter →":"Contact me →",
+      "Me contacter":"Contact me",
+      "GH":"GH",
+      "in":"in",
+      "✉":"✉",
+      "⟶":"⟶",
+      "Code  ·  IA  ·  Impact":"Code · AI · Impact",
+      "Code  ·  IA  ·  Impact":"Code · AI · Impact",
+      "Restons en contact":"Let’s stay in touch",
+      "Construisons quelque chose de grand.":"Let’s build something great.",
+      "Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international.":"I am looking for opportunities in Full Stack development, AI and automation, on-site in Tunisia or remotely, including internationally.",
+      "Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.":"Are you hiring or have a project to develop? Let’s discuss your needs and the solutions I can offer.",
+      "VVous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.":"Are you hiring or have a project to develop? Let’s discuss your needs and the solutions I can offer.",
+      "Opportunités professionnelles":"Professional opportunities",
+      "CDI · Freelance · Télétravail":"Full-time · Freelance · Remote",
+      "Un projet en tête ?":"Have a project in mind?",
+      "Parlons de votre besoin et des solutions possibles.":"Let’s discuss your needs and possible solutions.",
+      "Name":"Name",
+      "Email":"Email",
+      "Subject":"Subject",
+      "Message":"Message",
+      "Envoyer le message":"Send message",
+      "Envoyer le message →":"Send message →",
+      "الاسم":"Name",
+      "البريد الإلكتروني":"Email",
+      "الموضوع":"Subject",
+      "الرسالة":"Message",
+      "التقنيات والأدوات التي أستخدمها":"Technologies and tools I use",
+      "technologies et outils que j’utilise":"Technologies and tools I use",
+      "Full StackIA & ChatbotsAutomatisation":"Full Stack · AI & Chatbots · Automation",
+      "Disponible pour de nouvelles opportunités":"Available for new opportunities",
+      "E-MAIL":"EMAIL",
+      "TÉLÉPHONE":"PHONE",
+      "LOCALISATION":"LOCATION",
+      "Sfax, Tunisie":"Sfax, Tunisia",
+      "Le futur appartient à ceux":"The future belongs to those",
+      "qui codent aujourd’hui.":"who code today.",
+      "هل لديك فكرة؟":"Have an idea?",
+      "لنبتكر شيئًا معًا ♡":"Let’s build something together ♡",
+      "الإنجازات العظيمة لا تأتي من الراحة، بل من المثابرة ♡":"Great things come not from comfort, but from perseverance ♡",
+      "لنتحدث عن مشروعك.":"Let’s talk about your project.",
+      "معلومات الاتصال":"Contact details",
+      "Je conçois des applications web et mobiles complètes avec ":"I design and build complete web and mobile applications using ",
+      "Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international. Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.":"I am looking for professional opportunities in Full Stack development, AI and automation, on-site in Tunisia or remotely, including internationally. Are you hiring or do you have a project to develop? Let’s discuss your needs and the solutions I can offer.",
+      "CDI · Freelance · Télétravail":"Full-time · Freelance · Remote work",
+      "Parlons de votre besoin et des solutions possibles.":"Let’s discuss your needs and possible solutions.",
+      "Name":"Name","Email":"Email","Subject":"Subject","Message":"Message",
+      "التقنيات والأدوات التي أستخدمها":"Technologies and tools I use",
+      "Construisons quelque chose de grand.":"Let’s build something great.",
+      "Voir mes projets→":"View my projects →","↓Télécharger mon CV":"↓ Download my CV","Me contacter →":"Contact me →",
+      "Restons en contact":"Let’s stay in touch","MES COORDONNÉES":"MY CONTACT DETAILS","Parlons de votre projet.":"Let’s talk about your project.",
+      "Disponible pour de nouvelles opportunités":"Available for new opportunities","TÉLÉPHONE":"PHONE","LOCALISATION":"LOCATION",
+      "Code · IA · Impact":"Code · AI · Impact","Full StackIA & ChatbotsAutomatisation":"Full Stack · AI & Chatbots · Automation"
+    },
+    AR: {
+      'Accueil':'الرئيسية','À propos':'نبذة عني','À propos de moi':'نبذة عني','Projets':'المشاريع','Mes projets':'مشاريعي','Compétences':'المهارات','Certifications':'الشهادات','Parcours':'المسار المهني','Contact':'اتصل بي',
+      '● Disponible · Sfax, Tunisie':'● متاحة للعمل · صفاقس، تونس','Bonjour, je suis':'مرحبًا، أنا','Développeuse Full Stack':'مطوّرة Full Stack',
+      'diplômée de l’ISET Sfax (Licence en Développement des Systèmes d’Information, puis Master Professionnel DSIR — Génie Logiciel), je crée':'خريجة ISET صفاقس (إجازة في تطوير نظم المعلومات، ثم ماجستير مهني DSIR في هندسة البرمجيات)، أُطوّر',
+      'tous types de sites et d’applications web et mobiles':'مختلف أنواع المواقع وتطبيقات الويب والهواتف',
+      ' : sites e-commerce, plateformes de gestion, sites vitrines, API performantes et architectures microservices, avec':' : مثل مواقع التجارة الإلكترونية ومنصات الإدارة والمواقع التعريفية وواجهات API عالية الأداء وبُنى microservices، باستخدام',
+      'Mes réalisations incluent des sites e-commerce (React, Node.js, Angular, NextJs, Spring boot et .Net ), une plateforme d’enchères en temps réel et un système de planification universitaire. Passionnée par l’innovation, j’intègre aussi l’IA et l’automatisation dans des projets concrets : assistants conversationnels, chatbots WhatsApp et workflows intelligents avec n8n. Curieuse, adaptable et orientée résolution de problèmes, je veux contribuer à des solutions utiles, fiables et évolutives.':'تشمل مشاريعي مواقع للتجارة الإلكترونية باستخدام React وNode.js وAngular وNext.js وSpring Boot و.NET، ومنصة مزادات مباشرة ونظامًا لجدولة الجامعة. شغوفة بالابتكار، أدمج أيضًا الذكاء الاصطناعي والأتمتة في مشاريع عملية، مثل المساعدات الحوارية وروبوتات WhatsApp وسير العمل الذكي باستخدام n8n. أتميز بالفضول والقدرة على التكيّف وحل المشكلات، وأسعى إلى المساهمة في حلول مفيدة وموثوقة وقابلة للتطوير.',
+      'Je conçois des applications web et mobiles complètes avec ':'أطوّر تطبيقات ويب وهواتف متكاملة باستخدام ',
+      'Spring Boot, Angular, React et Flutter':'Spring Boot وAngular وReact وFlutter',
+      ', et j’y intègre l’IA : chatbots, assistants WhatsApp et automatisations n8n.':'، وأدمج فيها الذكاء الاصطناعي مثل روبوتات المحادثة ومساعدي WhatsApp وأتمتة n8n.',
+      'Voir mes projets':'عرض مشاريعي','Télécharger mon CV':'تحميل سيرتي الذاتية','Me contacter':'اتصل بي',
+      'Code':'البرمجة','IA':'الذكاء الاصطناعي','Impact':'الأثر','Restons en contact':'لنبقَ على تواصل',
+      'Construisons quelque chose de grand.':'لنبنِ شيئًا عظيمًا.',
+      'Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international.':'أبحث عن فرص مهنية في تطوير Full Stack والذكاء الاصطناعي والأتمتة، حضوريًا في تونس أو عن بُعد، بما في ذلك الفرص الدولية.',
+      'Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.':'هل تبحثون عن مطوّرة أو لديكم مشروع ترغبون في تطويره؟ لنتبادل الحديث حول احتياجاتكم والحلول التي يمكنني تقديمها.',
+      'Opportunités professionnelles':'فرص مهنية','CDI':'عمل بدوام كامل','Freelance':'عمل حر','Télétravail':'عمل عن بُعد',
+      'Un projet en tête ?':'هل لديكم مشروع؟','Parlons de votre besoin et des solutions possibles.':'لنتحدث عن احتياجاتكم والحلول الممكنة.',
+      'Envoyer le message':'إرسال الرسالة','Disponible pour de nouvelles opportunités':'متاحة لفرص مهنية جديدة',
+      'E-MAIL':'البريد الإلكتروني','TÉLÉPHONE':'الهاتف','LOCALISATION':'الموقع','Sfax, Tunisie':'صفاقس، تونس',
+      'Full Stack':'Full Stack','Chatbots':'روبوتات المحادثة','Automatisation':'الأتمتة',
+      'Le futur appartient à ceux':'المستقبل لمن','qui codent aujourd’hui.':'يكتبون الشيفرة اليوم.',
+      'Une idée en tête ?':'هل لديك فكرة؟',
+      'Créons quelque chose ensemble ♡':'لنبتكر شيئًا معًا ♡',
+      'Les grandes choses ne viennent pas du confort, mais de la persévérance ♡':'الإنجازات العظيمة لا تأتي من الراحة، بل من المثابرة ♡',
+      'Parlons de votre projet.':'لنتحدث عن مشروعك.',
+      'MES COORDONNÉES':'معلومات الاتصال',
+      '⌖ صفاقس':'⌖ صفاقس',
+      'Full Stack Developer':'مطوّرة Full Stack',
+      'Titulaire d’un Master Professionnel en Génie Logiciel (DSIR), spécialisée dans le développement d’applications web et mobiles full stack. Passionnée par l’intelligence artificielle et l’automatisation, je conçois des solutions performantes et évolutives en combinant Spring Boot, React, Angular et Flutter, avec un intérêt particulier pour les chatbots IA, les architectures distribuées et l’intégration de services intelligents.':'حاصلة على ماجستير مهني في هندسة البرمجيات (DSIR)، ومتخصصة في تطوير تطبيقات الويب والهواتف بأسلوب Full Stack. شغوفة بالذكاء الاصطناعي والأتمتة، وأطوّر حلولًا فعّالة وقابلة للتوسع باستخدام Spring Boot وReact وAngular وFlutter، مع اهتمام خاص بروبوتات المحادثة والأنظمة الموزعة والخدمات الذكية.',
+      'Découvrir mes projets →':'اكتشف مشاريعي ←','Télécharger mon CV ↓':'تحميل سيرتي الذاتية ↓','Toujours en mode':'دائمًا في طور','apprentissage ♡':'التعلّم ♡','Développeuse Full Stack à Sfax, titulaire d’une Licence en Développement des Systèmes d’Information et d’un Master Professionnel DSIR — Génie Logiciel à l’ISET Sfax. Je conçois des applications web et mobiles, des API performantes et des solutions d’automatisation intégrant des assistants IA, avec des architectures évolutives (microservices).':'مطوّرة Full Stack في صفاقس، حاصلة على إجازة في تطوير نظم المعلومات وماجستير مهني DSIR في هندسة البرمجيات من ISET صفاقس. أعمل على تطوير تطبيقات الويب والهواتف وواجهات API وحلول الأتمتة المدمجة مع مساعدات الذكاء الاصطناعي وبنية microservices قابلة للتوسع.',
+      '⌖ Sfax, Tunisie':'⌖ صفاقس، تونس','◎ Présentiel et remote':'◎ حضوري وعن بُعد','✧ Master DSIR — Génie logiciel':'✧ ماجستير DSIR — هندسة البرمجيات','IA & automatisation n8n':'الذكاء الاصطناعي وأتمتة n8n','Mes qualités':'مميزاتي','Créativité':'الإبداع','Adaptabilité':'القدرة على التكيّف','Esprit d’équipe':'العمل الجماعي','Bon relationnel':'التواصل الجيد','Langues':'اللغات','Français':'الفرنسية','Anglais':'الإنجليزية','Arabe':'العربية',
+      'Compétences':'المهارات','Technologies et outils que j’utilise':'التقنيات والأدوات التي أستخدمها','Backend':'تطوير الخلفية','Frontend & Mobile':'الواجهات والهواتف','Bases de données':'قواعد البيانات','DevOps & Cloud':'DevOps والحوسبة السحابية','Automatisation & IA':'الأتمتة والذكاء الاصطناعي','IA & Data':'الذكاء الاصطناعي والبيانات','Workflows automatisés':'سير العمل الآلي','Intégration de LLM':'دمج نماذج اللغة','IA appliquée':'الذكاء الاصطناعي التطبيقي',
+      'Quelques réalisations en vidéo':'نماذج من مشاريعي بالفيديو','GED & Chatbot IA':'إدارة الوثائق وروبوت محادثة ذكي','Système intelligent de gestion documentaire avec workflow BPM, chatbot IA et automatisation du cycle de vie des documents.':'نظام ذكي لإدارة الوثائق يتضمن سير عمل BPM وروبوت محادثة وأتمتة دورة حياة الوثائق.','Plateforme d’enchères en temps réel':'منصة مزادات مباشرة','Gestion des enchères, communication instantanée via WebSocket, authentification sécurisée et système de commentaires.':'إدارة المزادات والتواصل الفوري عبر WebSocket والمصادقة الآمنة ونظام التعليقات.','Plateforme e-commerce':'منصة تجارة إلكترونية','Application de commerce électronique complète développée en collaboration : gestion des produits, panier et paiement sécurisé.':'تطبيق تجارة إلكترونية متكامل لإدارة المنتجات وسلة المشتريات والدفع الآمن.','Plateforme de commerce digital':'منصة تجارة رقمية','Plateforme e-commerce .NET permettant la gestion des produits, des commandes et des utilisateurs, avec une architecture sécurisée et performante.':'منصة تجارة إلكترونية باستخدام .NET لإدارة المنتجات والطلبات والمستخدمين ببنية آمنة وفعّالة.','Calendrier & planification universitaire':'جدولة وتخطيط الجامعة','Gestion des emplois du temps avec planification automatique, détection des conflits et gestion des enseignants, salles, étudiants, groupes et matières.':'إدارة الجداول الزمنية مع التخطيط الآلي واكتشاف التعارضات وإدارة المدرّسين والقاعات والطلاب والمجموعات والمواد.','Assistant IA conversationnel sur WhatsApp':'مساعد ذكاء اصطناعي عبر WhatsApp','Assistant connecté à WhatsApp via la Cloud API : réponses automatiques, contexte des conversations, transfert à un humain par e-mail et fallback entre plusieurs LLM pour la continuité du service.':'مساعد متصل بـ WhatsApp عبر Cloud API، يوفّر ردودًا آلية ويحافظ على سياق المحادثات ويحوّل الطلبات إلى موظف عبر البريد الإلكتروني مع التبديل بين نماذج لغوية لضمان استمرارية الخدمة.',
+      'Formations et attestations obtenues':'الدورات والشهادات المتحصّل عليها','Expérience & Formation':'الخبرة والتعليم','Mon parcours':'مساري','Expérience professionnelle':'الخبرة المهنية','Formation académique':'التعليم الأكاديمي','Stage PFE Master':'تربص مشروع ختم الماجستير','Stage PFE Licence':'تربص مشروع ختم الإجازة','Stage de perfectionnement':'تربص تطوير المهارات','Stage d’observation':'تربص ملاحظة','Développeuse Full Stack & Chatbot IA':'مطوّرة Full Stack وروبوت محادثة ذكي','Développeuse Full Stack':'مطوّرة Full Stack','Développeuse Web Full Stack':'مطوّرة ويب Full Stack','Stagiaire informatique':'متربصة في الإعلامية','Plateforme intelligente de suivi opérationnel et de communication automatisée via chatbot : fonctionnalités web, gestion des dossiers, services de messagerie et notifications dans une architecture microservices. Spring Boot, Next.js, PostgreSQL et chatbot IA.':'منصة ذكية لمتابعة العمليات والتواصل الآلي عبر روبوت محادثة، تشمل تطبيقات الويب وإدارة الملفات والرسائل والإشعارات ضمن بنية microservices باستخدام Spring Boot وNext.js وPostgreSQL والذكاء الاصطناعي.','Plateforme de vente aux enchères : Angular et Spring Boot, enchères, temps réel, authentification sécurisée, ventes et commentaires.':'منصة مزادات باستخدام Angular وSpring Boot مع المزايدة الفورية والمصادقة الآمنة والمبيعات والتعليقات.','Application e-commerce avec React et Node.js, en équipe sur un projet complet.':'تطبيق تجارة إلكترونية باستخدام React وNode.js ضمن فريق عمل.','Observation des processus opérationnels et informatiques d’une entreprise établie.':'ملاحظة العمليات التشغيلية والمعلوماتية داخل مؤسسة.','Architecture logicielle avancée, IA, systèmes distribués, génie du logiciel et cloud.':'هندسة البرمجيات المتقدمة والذكاء الاصطناعي والأنظمة الموزعة والحوسبة السحابية.','Développement web et mobile, bases de données, systèmes d’information et algorithmique.':'تطوير الويب والهواتف وقواعد البيانات ونظم المعلومات والخوارزميات.',
+      'Disponible pour des stages, missions freelance ou opportunités à temps plein. Un projet en tête ? Écrivez-moi.':'متاحة للتربصات والعمل الحر والفرص بدوام كامل. هل لديك مشروع؟ راسلني.','Nom':'الاسم','E-mail':'البريد الإلكتروني','Objet':'الموضوع','Message':'الرسالة','Nom et prénom':'الاسم واللقب','nom@exemple.com':'name@example.com','Objet de votre message':'موضوع رسالتك','Décrivez votre projet ou votre demande…':'صف مشروعك أو طلبك…','Envoyer le message →':'إرسال الرسالة ←','Mes coordonnées':'معلومات الاتصال','Ouverte aux opportunités en Tunisie et à l’international.':'منفتحة على فرص العمل في تونس وخارجها.','J’ai hâte de':'أتطلع إلى','vous lire ♡':'قراءة رسالتك ♡','Navigation':'التنقّل','Tous droits réservés.':'جميع الحقوق محفوظة.','Fait avec ♥ à Sfax':'صُنع بحب ♥ في صفاقس','© 2026 Zina Ben Belgacem. Tous droits réservés.':'© 2026 Zina Ben Belgacem. جميع الحقوق محفوظة.','Fait avec ♥ à Sfax, Tunisie':'صُنع بحب ♥ في صفاقس، تونس','Le formulaire doit encore être configuré avec vos identifiants EmailJS.':'يجب إعداد نموذج الاتصال باستخدام بيانات EmailJS.','Envoi en cours…':'جارٍ الإرسال…','Votre message a été envoyé. Merci pour votre contact !':'تم إرسال رسالتك. شكرًا لتواصلك!','L’envoi a échoué. Réessayez ou contactez-moi directement par e-mail.':'تعذّر الإرسال. حاول مجددًا أو تواصل معي عبر البريد الإلكتروني.',
+      'Disponible pour un poste ou une mission':'متاحة لوظيفة أو لمهمة عمل حر','Sfax, Tunisie':'صفاقس، تونس','Voir mes projets':'اكتشفي مشاريعي','Télécharger mon CV':'تحميل سيرتي الذاتية','Me contacter':'تواصلي معي','Scroll':'انتقلي إلى الأسفل','Code  ·  IA  ·  Impact':'البرمجة · الذكاء الاصطناعي · الأثر','Code · IA · Impact':'البرمجة · الذكاء الاصطناعي · الأثر',
+      'Je conçois des applications web et mobiles complètes avec':'أطوّر تطبيقات ويب وهواتف متكاملة باستخدام','et j’y intègre l’IA : chatbots, assistants WhatsApp et automatisations n8n.':'وأدمج فيها الذكاء الاصطناعي: روبوتات المحادثة ومساعدات WhatsApp وأتمتة n8n.','Restons en contact':'لنبقَ على تواصل','Construisons quelque chose de grand.':'لنبنِ شيئًا عظيمًا.','Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international.':'أبحث عن فرص مهنية في تطوير Full Stack والذكاء الاصطناعي والأتمتة، حضوريًا في تونس أو عن بُعد، بما في ذلك الفرص الدولية.','Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.':'هل تبحثون عن مطوّرة أو لديكم مشروع ترغبون في تطويره؟ لنتحدث عن احتياجاتكم والحلول التي يمكنني تقديمها.','CDI  · Freelance · Télétravail':'دوام كامل · عمل حر · عمل عن بُعد','Parlons de votre besoin et des solutions possibles.':'لنتحدث عن احتياجاتك والحلول الممكنة.','Nom':'الاسم','E-mail':'البريد الإلكتروني','Objet':'الموضوع','Message':'الرسالة','Envoyer le message':'إرسال الرسالة','Opportunités professionnelles':'فرص مهنية','Un projet en tête ?':'هل لديك مشروع؟','MES COORDONNÉES':'معلومات الاتصال','TÉLÉPHONE':'الهاتف','LOCALISATION':'الموقع','Full Stack':'Full Stack','IA':'الذكاء الاصطناعي','Automatisation':'الأتمتة'
+,
+      "Je conçois des applications web et mobiles complètes avec":"أصمّم وأطوّر تطبيقات ويب وهواتف متكاملة باستخدام",
+      "Je conçois des applications web et mobiles complètes avec ":"أصمّم وأطوّر تطبيقات ويب وهواتف متكاملة باستخدام ",
+      "Voir mes projets→":"عرض مشاريعي ←",
+      "Voir mes projets →":"عرض مشاريعي ←",
+      "↓Télécharger mon CV":"↓ تحميل سيرتي الذاتية",
+      "Télécharger mon CV":"تحميل سيرتي الذاتية",
+      "Me contacter →":"تواصلي معي ←",
+      "Me contacter":"تواصلي معي",
+      "Code  ·  IA  ·  Impact":"البرمجة · الذكاء الاصطناعي · الأثر",
+      "Code  ·  IA  ·  Impact":"البرمجة · الذكاء الاصطناعي · الأثر",
+      "Construisons quelque chose de grand.":"لنبنِ شيئًا عظيمًا.",
+      "Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international.":"أبحث عن فرص مهنية في تطوير Full Stack والذكاء الاصطناعي والأتمتة، حضوريًا في تونس أو عن بُعد، بما في ذلك الفرص الدولية.",
+      "Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.":"هل تبحثون عن مطوّرة أو لديكم مشروع ترغبون في تطويره؟ لنتحدث عن احتياجاتكم والحلول التي يمكنني تقديمها.",
+      "VVous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.":"هل تبحثون عن مطوّرة أو لديكم مشروع ترغبون في تطويره؟ لنتحدث عن احتياجاتكم والحلول التي يمكنني تقديمها.",
+      "Opportunités professionnelles":"فرص مهنية",
+      "CDI · Freelance · Télétravail":"دوام كامل · عمل حر · عمل عن بُعد",
+      "Un projet en tête ?":"هل لديك مشروع؟",
+      "Parlons de votre besoin et des solutions possibles.":"لنتحدث عن احتياجاتك والحلول الممكنة.",
+      "Name":"الاسم",
+      "Email":"البريد الإلكتروني",
+      "Subject":"الموضوع",
+      "Message":"الرسالة",
+      "Envoyer le message":"إرسال الرسالة",
+      "Envoyer le message →":"إرسال الرسالة ←",
+      "التقنيات والأدوات التي أستخدمها":"التقنيات والأدوات التي أستخدمها",
+      "Disponible pour de nouvelles opportunités":"متاحة لفرص مهنية جديدة",
+      "E-MAIL":"البريد الإلكتروني",
+      "TÉLÉPHONE":"الهاتف",
+      "LOCALISATION":"الموقع",
+      "Sfax, Tunisie":"صفاقس، تونس",
+      "Le futur appartient à ceux":"المستقبل لمن",
+      "qui codent aujourd’hui.":"يبرمجون اليوم.",
+      "Full StackIA & ChatbotsAutomatisation":"Full Stack · الذكاء الاصطناعي وروبوتات المحادثة · الأتمتة",
+      "Restons en contact":"لنبقَ على تواصل",
+      "Parlons de votre projet.":"لنتحدث عن مشروعك.",
+      "MES COORDONNÉES":"معلومات الاتصال",
+      "هل لديك فكرة؟":"هل لديك فكرة؟",
+      "لنبتكر شيئًا معًا ♡":"لنبتكر شيئًا معًا ♡",
+      "الإنجازات العظيمة لا تأتي من الراحة، بل من المثابرة ♡":"الإنجازات العظيمة لا تأتي من الراحة، بل من المثابرة ♡",
+      "لنتحدث عن مشروعك.":"لنتحدث عن مشروعك.",
+      "معلومات الاتصال":"معلومات الاتصال",
+      "الاسم":"الاسم",
+      "البريد الإلكتروني":"البريد الإلكتروني",
+      "الموضوع":"الموضوع",
+      "الرسالة":"الرسالة",
+      "Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international. Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.":"أبحث عن فرص مهنية في تطوير Full Stack والذكاء الاصطناعي والأتمتة، حضوريًا في تونس أو عن بُعد، بما في ذلك الفرص الدولية. هل تبحثون عن مطوّرة أو لديكم مشروع ترغبون في تطويره؟ لنتحدث عن احتياجاتكم والحلول التي يمكنني تقديمها.",
+      "CDI · Freelance · Télétravail":"دوام كامل · عمل حر · عمل عن بُعد",
+      "Parlons de votre besoin et des solutions possibles.":"لنتحدث عن احتياجاتك والحلول الممكنة.",
+      "Name":"الاسم","Email":"البريد الإلكتروني","Subject":"الموضوع","Message":"الرسالة",
+      "التقنيات والأدوات التي أستخدمها":"التقنيات والأدوات التي أستخدمها",
+      "Voir mes projets→":"عرض مشاريعي ←","↓Télécharger mon CV":"↓ تحميل سيرتي الذاتية","Me contacter →":"تواصلي معي ←",
+      "Restons en contact":"لنبقَ على تواصل","MES COORDONNÉES":"معلومات الاتصال","Parlons de votre projet.":"لنتحدث عن مشروعك.",
+      "Disponible pour de nouvelles opportunités":"متاحة لفرص مهنية جديدة","TÉLÉPHONE":"الهاتف","LOCALISATION":"الموقع",
+      "Code · IA · Impact":"البرمجة · الذكاء الاصطناعي · الأثر","Full StackIA & ChatbotsAutomatisation":"Full Stack · الذكاء الاصطناعي وروبوتات المحادثة · الأتمتة",
+      "Je conçois des applications web et mobiles complètes avec Spring Boot, Angular, React et Flutter, et j’y intègre l’IA : chatbots, assistants WhatsApp et automatisations n8n.":"أصمّم وأطوّر تطبيقات ويب وهواتف متكاملة باستخدام Spring Boot وAngular وReact وFlutter، وأدمج فيها الذكاء الاصطناعي مثل روبوتات المحادثة ومساعدات WhatsApp وأتمتة n8n.",
+      "Je suis à la recherche d’opportunités professionnelles en développement Full Stack, IA et automatisation, en présentiel en Tunisie ou en télétravail, y compris à l’international.":"أبحث عن فرص مهنية في تطوير Full Stack والذكاء الاصطناعي والأتمتة، حضوريًا في تونس أو عن بُعد، بما في ذلك الفرص الدولية.",
+      "Vous recrutez ou avez un projet à développer ? Échangeons sur vos besoins et les solutions que je peux apporter.":"هل تبحثون عن مطوّرة أو لديكم مشروع ترغبون في تطويره؟ لنتحدث عن احتياجاتكم والحلول التي يمكنني تقديمها.",
+      "Construisons quelque chose de grand.":"لنبنِ شيئًا عظيمًا.",
+      "Les grandes choses ne viennent pas du confort, mais de la persévérance ♡":"الإنجازات العظيمة لا تأتي من الراحة، بل من المثابرة ♡",
+      "Une idée en tête ?":"هل لديك فكرة؟","Créons quelque chose ensemble ♡":"لنبتكر شيئًا معًا ♡",
+      "Parlons de votre projet.":"لنتحدث عن مشروعك.","MES COORDONNÉES":"معلومات الاتصال"
+    }
+  };
+  const originalTexts = new WeakMap();
+  function allTextNodes(root){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){return n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+    const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode); return nodes;
+  }
+  const nodes=allTextNodes(document.body);
+  nodes.forEach(n=>originalTexts.set(n,n.nodeValue));
+  const attrs=[['placeholder','Nom et prénom'],['placeholder','Objet de votre message'],['placeholder','Décrivez votre projet ou votre demande…']];
+  const attrOriginals=[];
+  document.querySelectorAll('input,textarea').forEach(el=>{for(const a of ['placeholder']) if(el.hasAttribute(a)) attrOriginals.push([el,a,el.getAttribute(a)]);});
+  const ariaOriginals=[]; document.querySelectorAll('[aria-label]').forEach(el=>ariaOriginals.push([el,el.getAttribute('aria-label')]));
+  const titleOriginals=[]; document.querySelectorAll('[title]').forEach(el=>titleOriginals.push([el,el.getAttribute('title')]));
+  const originalTitle=document.title;
+  function setLanguage(lang){
+    current=lang;
+    nodes.forEach(n=>{
+      const raw=originalTexts.get(n);
+      const key=raw.trim();
+      const normalizedKey=key.replace(/[\s\u00a0]+/g,' ').trim();
+      let translated=key;
+      if(lang!=='FR'){
+        translated=translations[lang][key]||translations[lang][normalizedKey]||key;
+        // Translate full phrases embedded in text nodes without changing markup or other content.
+        if(translated===key){
+          const entries=Object.entries(translations[lang]).filter(([source,target])=>source.length>8 && source!==target).sort((a,b)=>b[0].length-a[0].length);
+          for(const [source,target] of entries){
+            if(translated.includes(source)) translated=translated.split(source).join(target);
+          }
+        }
+      }
+      n.nodeValue=raw.replace(key,translated);
+    });
+    attrOriginals.forEach(([el,a,v])=>{el.setAttribute(a,lang==='FR'?v:(translations[lang][v]||v));});
+    ariaOriginals.forEach(([el,v])=>{if(v)el.setAttribute('aria-label',lang==='FR'?v:(translations[lang][v]||v));});
+    titleOriginals.forEach(([el,v])=>{if(v)el.setAttribute('title',lang==='FR'?v:(translations[lang][v]||v));});
+    document.documentElement.lang=lang==='AR'?'ar':lang.toLowerCase();
+    document.documentElement.dir=lang==='AR'?'rtl':'ltr';
+    document.title=lang==='FR'?originalTitle:lang==='EN'?'Zina Ben Belgacem | Full Stack Developer in Sfax':'زينة بن بلقاسم | مطوّرة Full Stack في صفاقس';
+const currentLangLabel = document.getElementById('current-lang');
+if (currentLangLabel) {
+  currentLangLabel.textContent = lang;
+}  }
+  if(button) button.addEventListener('click',()=>setLanguage(langs[(langs.indexOf(current)+1)%langs.length]));
+  // Traduit aussi les messages et le bouton du formulaire, y compris après une réponse EmailJS.
+  const submitButton=document.getElementById('contact-submit');
+  const originalSubmitText=submitButton ? submitButton.textContent.trim() : '';
+  function translateDynamicText(el, originalText){
+    if(!el) return;
+    const key=(originalText || el.textContent || '').trim();
+    if(!key) return;
+    const translated=current==='FR' ? key : (translations[current][key] || key);
+    if(el.textContent.trim()!==translated) el.textContent=translated;
+  }
+  if(submitButton){
+    const submitObserver=new MutationObserver(()=>{
+      const raw=submitButton.textContent.trim();
+      if(current==='FR') return;
+      const translated=translations[current][raw] || translations[current][originalSubmitText];
+      if(translated && raw!==translated) submitButton.textContent=translated;
+    });
+    submitObserver.observe(submitButton,{childList:true,characterData:true,subtree:true});
+  }
+  const status=document.getElementById('form-status');
+  if(status){
+    let translatingStatus=false;
+    new MutationObserver(()=>{
+      if(translatingStatus || current==='FR') return;
+      const key=status.textContent.trim();
+      const translated=translations[current][key];
+      if(translated && translated!==key){
+        translatingStatus=true;
+        status.textContent=translated;
+        translatingStatus=false;
+      }
+    }).observe(status,{childList:true,characterData:true,subtree:true});
+  }
+})();
+</script>
 </body>
 </html>
